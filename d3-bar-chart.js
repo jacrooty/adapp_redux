@@ -58,11 +58,11 @@ document.ready.then(function () {
 
   // data array object with default settings for investment objective
   var data = [
-    { asset: "Cash", amount: cashValue },
-    { asset: "REIT (Real Estate Investment Trust)", amount: reitValue },
-    { asset: "Bonds", amount: bondsValue },
-    { asset: "Mutual Funds", amount: fundValue },
-    { asset: "My Stocks (Personal Selections)", amount: selfValue }
+    { asset: "Organic", amount: cashValue },
+    { asset: "Natural", amount: reitValue },
+    { asset: "Local Source", amount: bondsValue },
+    { asset: "Non GMO", amount: fundValue },
+    { asset: "Pure", amount: selfValue }
   ];
 
   // append the svg object to the body of the page
@@ -173,9 +173,10 @@ document.ready.then(function () {
     });
   };
 
+
 function setObjectiveValues() {
   // set asset variable values to match investment objective
-  if (objective === "Capital") {
+  if (objective === "item1") {
     cashValue = 10;
     reitValue = 5;
     bondsValue = 15;
@@ -183,7 +184,7 @@ function setObjectiveValues() {
     selfValue = 10
   };
 
-  if (objective === "Balance") {
+  if (objective === "item2") {
     cashValue = 10;
     reitValue = 5;
     bondsValue = 35;
@@ -191,7 +192,7 @@ function setObjectiveValues() {
     selfValue = 10
   };
 
-  if (objective === "Growth") {
+  if (objective === "item3") {
     cashValue = 10;
     reitValue = 15;
     bondsValue = 5;
@@ -199,7 +200,7 @@ function setObjectiveValues() {
     selfValue = 20
   };
 
-  if (objective === "Aggressive") {
+  if (objective === "item4") {
     cashValue = 10;
     reitValue = 25;
     bondsValue = 5;
@@ -207,6 +208,8 @@ function setObjectiveValues() {
     selfValue = 30
   };
 };
+
+
 
   makefigure(); // initial drawing of the bar chart
 
@@ -216,11 +219,11 @@ function setObjectiveValues() {
       if (reportStatus) console.log("objective set to: ", objective);
       setObjectiveValues();
       data = [
-        { asset: "Cash", amount: cashValue },
-        { asset: "REIT (Real Estate Investment Trust)", amount: reitValue },
-        { asset: "Bonds", amount: bondsValue },
-        { asset: "Mutual Funds", amount: fundValue },
-        { asset: "My Stocks (Personal Selections)", amount: selfValue }
+        { asset: "Organic", amount: cashValue },
+        { asset: "Natural", amount: reitValue },
+        { asset: "Local Source", amount: bondsValue },
+        { asset: "Non GMO", amount: fundValue },
+        { asset: "Pure", amount: selfValue }
       ];
 
       if (reportStatus) console.log(data);
@@ -241,11 +244,11 @@ function setObjectiveValues() {
       if (reportStatus) listValues();
 
       data = [
-        { asset: "Cash", amount: cashValue },
-        { asset: "REIT (Real Estate Investment Trust)", amount: reitValue },
-        { asset: "Bonds", amount: bondsValue },
-        { asset: "Mutual Funds", amount: fundValue },
-        { asset: "My Stocks (Personal Selections)", amount: selfValue }
+        { asset: "Organic", amount: cashValue },
+        { asset: "Natural", amount: reitValue },
+        { asset: "Local Source", amount: bondsValue },
+        { asset: "Non GMO", amount: fundValue },
+        { asset: "Pure", amount: selfValue }
       ];
 
       if (reportStatus) console.log(data);
@@ -261,11 +264,11 @@ function setObjectiveValues() {
       };
       if (reportStatus) listValues();
       data = [
-        { asset: "Cash", amount: cashValue },
-        { asset: "REIT (Real Estate Investment Trust)", amount: reitValue },
-        { asset: "Bonds", amount: bondsValue },
-        { asset: "Mutual Funds", amount: fundValue },
-        { asset: "My Stocks (Personal Selections)", amount: selfValue }
+        { asset: "Organic", amount: cashValue },
+        { asset: "Natural", amount: reitValue },
+        { asset: "Local Source", amount: bondsValue },
+        { asset: "Non GMO", amount: fundValue },
+        { asset: "Pure", amount: selfValue }
       ];
 
       if (reportStatus) console.log(data);
@@ -281,11 +284,11 @@ function setObjectiveValues() {
       };
       if (reportStatus) listValues();
       data = [
-        { asset: "Cash", amount: cashValue },
-        { asset: "REIT (Real Estate Investment Trust)", amount: reitValue },
-        { asset: "Bonds", amount: bondsValue },
-        { asset: "Mutual Funds", amount: fundValue },
-        { asset: "My Stocks (Personal Selections)", amount: selfValue }
+        { asset: "Organic", amount: cashValue },
+        { asset: "Natural", amount: reitValue },
+        { asset: "Local Source", amount: bondsValue },
+        { asset: "Non GMO", amount: fundValue },
+        { asset: "Pure", amount: selfValue }
       ];
 
       if (reportStatus) console.log(data);
@@ -302,11 +305,11 @@ function setObjectiveValues() {
       };
       if (reportStatus) listValues();
       data = [
-        { asset: "Cash", amount: cashValue },
-        { asset: "REIT (Real Estate Investment Trust)", amount: reitValue },
-        { asset: "Bonds", amount: bondsValue },
-        { asset: "Mutual Funds", amount: fundValue },
-        { asset: "My Stocks (Personal Selections)", amount: selfValue }
+        { asset: "Organic", amount: cashValue },
+        { asset: "Natural", amount: reitValue },
+        { asset: "Local Source", amount: bondsValue },
+        { asset: "Non GMO", amount: fundValue },
+        { asset: "Pure", amount: selfValue }
       ];
 
       if (reportStatus) console.log(data);
@@ -323,11 +326,11 @@ function setObjectiveValues() {
       };
       if (reportStatus) listValues();
       data = [
-        { asset: "Cash", amount: cashValue },
-        { asset: "REIT (Real Estate Investment Trust)", amount: reitValue },
-        { asset: "Bonds", amount: bondsValue },
-        { asset: "Mutual Funds", amount: fundValue },
-        { asset: "My Stocks (Personal Selections)", amount: selfValue }
+        { asset: "Organic", amount: cashValue },
+        { asset: "Natural", amount: reitValue },
+        { asset: "Local Source", amount: bondsValue },
+        { asset: "Non GMO", amount: fundValue },
+        { asset: "Pure", amount: selfValue }
       ];
 
       if (reportStatus) console.log(data);
@@ -345,11 +348,11 @@ function setObjectiveValues() {
       };
       if (reportStatus) listValues();
       data = [
-        { asset: "Cash", amount: cashValue },
-        { asset: "REIT (Real Estate Investment Trust)", amount: reitValue },
-        { asset: "Bonds", amount: bondsValue },
-        { asset: "Mutual Funds", amount: fundValue },
-        { asset: "My Stocks (Personal Selections)", amount: selfValue }
+        { asset: "Organic", amount: cashValue },
+        { asset: "Natural", amount: reitValue },
+        { asset: "Local Source", amount: bondsValue },
+        { asset: "Non GMO", amount: fundValue },
+        { asset: "Pure", amount: selfValue }
       ];
 
       if (reportStatus) console.log(data);
@@ -367,11 +370,11 @@ function setObjectiveValues() {
       };
       if (reportStatus) listValues();
       data = [
-        { asset: "Cash", amount: cashValue },
-        { asset: "REIT (Real Estate Investment Trust)", amount: reitValue },
-        { asset: "Bonds", amount: bondsValue },
-        { asset: "Mutual Funds", amount: fundValue },
-        { asset: "My Stocks (Personal Selections)", amount: selfValue }
+        { asset: "Organic", amount: cashValue },
+        { asset: "Natural", amount: reitValue },
+        { asset: "Local Source", amount: bondsValue },
+        { asset: "Non GMO", amount: fundValue },
+        { asset: "Pure", amount: selfValue }
       ];
 
       if (reportStatus) console.log(data);
@@ -389,11 +392,11 @@ function setObjectiveValues() {
       };
       if (reportStatus) listValues();
       data = [
-        { asset: "Cash", amount: cashValue },
-        { asset: "REIT (Real Estate Investment Trust)", amount: reitValue },
-        { asset: "Bonds", amount: bondsValue },
-        { asset: "Mutual Funds", amount: fundValue },
-        { asset: "My Stocks (Personal Selections)", amount: selfValue }
+        { asset: "Organic", amount: cashValue },
+        { asset: "Natural", amount: reitValue },
+        { asset: "Local Source", amount: bondsValue },
+        { asset: "Non GMO", amount: fundValue },
+        { asset: "Pure", amount: selfValue }
       ];
 
       if (reportStatus) console.log(data);
