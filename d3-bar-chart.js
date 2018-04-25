@@ -58,8 +58,8 @@ document.ready.then(function () {
 
   // data array object with default settings for investment objective
   var data = [
-    { asset: "H1", amount: cashValue },
-    { asset: "H2", amount: reitValue },
+    { asset: "Cash", amount: cashValue },
+    { asset: "REIT (Real Estate Investment Trust)", amount: reitValue },
     { asset: "Bonds", amount: bondsValue },
     { asset: "Mutual Funds", amount: fundValue },
     { asset: "My Stocks (Personal Selections)", amount: selfValue }
@@ -92,8 +92,7 @@ document.ready.then(function () {
       .attr("class", "title")
       .attr("x", x(data[0].name))
       .attr("y", -26)
-      .text("Types of Fitness for Health People")
-    ;
+      .text("Types of Fitness for Health People");
 
 
     // append the rectangles for the bar chart
@@ -176,19 +175,19 @@ document.ready.then(function () {
 
 function setObjectiveValues() {
   // set asset variable values to match investment objective
-  if (objective === "health") {
-    cashValue = 30;
+  if (objective === "Capital") {
+    cashValue = 10;
     reitValue = 5;
     bondsValue = 15;
     fundValue = 40;
     selfValue = 10
   };
 
-  if (objective === "wealth") {
+  if (objective === "Balance") {
     cashValue = 10;
-    reitValue = 4;
-    bondsValue = 10;
-    fundValue = 30;
+    reitValue = 5;
+    bondsValue = 35;
+    fundValue = 40;
     selfValue = 10
   };
 
@@ -207,14 +206,6 @@ function setObjectiveValues() {
     fundValue = 30;
     selfValue = 30
   };
-
-  if (objective === "exercise") {
-    cashValue = 20;
-    reitValue = 10;
-    bondsValue = 15;
-    fundValue = 10;
-    selfValue = 10
-  };
 };
 
   makefigure(); // initial drawing of the bar chart
@@ -225,7 +216,7 @@ function setObjectiveValues() {
       if (reportStatus) console.log("objective set to: ", objective);
       setObjectiveValues();
       data = [
-        { asset: "H1", amount: cashValue },
+        { asset: "Cash", amount: cashValue },
         { asset: "REIT (Real Estate Investment Trust)", amount: reitValue },
         { asset: "Bonds", amount: bondsValue },
         { asset: "Mutual Funds", amount: fundValue },
@@ -250,8 +241,8 @@ function setObjectiveValues() {
       if (reportStatus) listValues();
 
       data = [
-        { asset: "H1", amount: cashValue },
-        { asset: "H2", amount: reitValue },
+        { asset: "Cash", amount: cashValue },
+        { asset: "REIT (Real Estate Investment Trust)", amount: reitValue },
         { asset: "Bonds", amount: bondsValue },
         { asset: "Mutual Funds", amount: fundValue },
         { asset: "My Stocks (Personal Selections)", amount: selfValue }
@@ -270,8 +261,8 @@ function setObjectiveValues() {
       };
       if (reportStatus) listValues();
       data = [
-        { asset: "H1", amount: cashValue },
-        { asset: "H2", amount: reitValue },
+        { asset: "Cash", amount: cashValue },
+        { asset: "REIT (Real Estate Investment Trust)", amount: reitValue },
         { asset: "Bonds", amount: bondsValue },
         { asset: "Mutual Funds", amount: fundValue },
         { asset: "My Stocks (Personal Selections)", amount: selfValue }
@@ -290,7 +281,7 @@ function setObjectiveValues() {
       };
       if (reportStatus) listValues();
       data = [
-        { asset: "H1", amount: cashValue },
+        { asset: "Cash", amount: cashValue },
         { asset: "REIT (Real Estate Investment Trust)", amount: reitValue },
         { asset: "Bonds", amount: bondsValue },
         { asset: "Mutual Funds", amount: fundValue },
@@ -311,7 +302,7 @@ function setObjectiveValues() {
       };
       if (reportStatus) listValues();
       data = [
-        { asset: "H1", amount: cashValue },
+        { asset: "Cash", amount: cashValue },
         { asset: "REIT (Real Estate Investment Trust)", amount: reitValue },
         { asset: "Bonds", amount: bondsValue },
         { asset: "Mutual Funds", amount: fundValue },
@@ -332,7 +323,7 @@ function setObjectiveValues() {
       };
       if (reportStatus) listValues();
       data = [
-        { asset: "H1", amount: cashValue },
+        { asset: "Cash", amount: cashValue },
         { asset: "REIT (Real Estate Investment Trust)", amount: reitValue },
         { asset: "Bonds", amount: bondsValue },
         { asset: "Mutual Funds", amount: fundValue },
@@ -354,7 +345,7 @@ function setObjectiveValues() {
       };
       if (reportStatus) listValues();
       data = [
-        { asset: "H1", amount: cashValue },
+        { asset: "Cash", amount: cashValue },
         { asset: "REIT (Real Estate Investment Trust)", amount: reitValue },
         { asset: "Bonds", amount: bondsValue },
         { asset: "Mutual Funds", amount: fundValue },
@@ -376,7 +367,7 @@ function setObjectiveValues() {
       };
       if (reportStatus) listValues();
       data = [
-        { asset: "H1", amount: cashValue },
+        { asset: "Cash", amount: cashValue },
         { asset: "REIT (Real Estate Investment Trust)", amount: reitValue },
         { asset: "Bonds", amount: bondsValue },
         { asset: "Mutual Funds", amount: fundValue },
@@ -398,7 +389,7 @@ function setObjectiveValues() {
       };
       if (reportStatus) listValues();
       data = [
-        { asset: "H1", amount: cashValue },
+        { asset: "Cash", amount: cashValue },
         { asset: "REIT (Real Estate Investment Trust)", amount: reitValue },
         { asset: "Bonds", amount: bondsValue },
         { asset: "Mutual Funds", amount: fundValue },

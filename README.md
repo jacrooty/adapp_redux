@@ -1,6 +1,8 @@
 ### Customized Revised Version of the Electron-Based App
 
-Changing add app for our purposes
+Changing add app for our proposed and project Food Fitness and Sports
+
+Some of the information that existed in the original README, applies:
 
 We set up a text editor and go into the index.html file, removing the code reference to the D3 local file by commenting it out:
 ```
@@ -66,21 +68,6 @@ To complete the work on the revised Asset Distribution Application, let's commen
 // mainWindow.webContents.openDevTools()
 ```
 
--------------------------
-
-A zip archive of the final directory for the revised Electron version of the Asset Distribution Application is provided as adapp-2.zip
-
-To run the complete application on Mac or Windows, we can download the zip archive,  placing it in a directory of our choice, and we unzip the archive.
-
-We need Node to run the application. So while working in a web browswer, we download  and install node. We select the most recent version from
-
-https://nodejs.org/en/download/current/
-
-We follow the installation instructions, obtaining Node and the Node Package Manager.
-
-With Node installed, we go to the Terminal or command window and locate ourselves in the adapp directory that we have selected earlier.
-
 Then within the adapp-2 directory, we use Node Package Manager to execute the application:
 ```
 npm start
-```   

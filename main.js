@@ -22,13 +22,13 @@ function createWindow () {
   mainWindow = new BrowserWindow({
     show: true,                  // default value = true
     backgroundColor: "#FFF",     // default value = "#FFF"
-    width: 1000,                  // default value = 800
-    height: 800,                 // default value = 600
+    width: 800,                  // default value = 800
+    height: 600,                 // default value = 600
     minWidth: 0,                 // default value = 0
     maxWidth: 1600,              // default value = unlimited
     minHeight: 0,                // default value = 0
     maxHeight: 1600,              // default value = unlimited
-    resizable: false,             // default value = true
+    resizable: true,             // default value = true
     movable: true,               // default value = true
     alwaysOnTop: false,          // default value = false
     title: "Electron DV Project",           // default value = "Electron"
