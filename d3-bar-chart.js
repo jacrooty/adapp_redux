@@ -99,21 +99,23 @@ document.ready.then(function () {
     svg.selectAll(".bar")
       .data(data)
       .enter().append("rect")
-      .transition().duration(200).ease(d3.easeLinear)
+      .transition().duration(500).ease(d3.easeBounce)
       .attr("class", "bar")
+      .attr("opacity", 0.5) // New Opacity
       .attr("x", function(d) {
         return x(d.asset); })
       .attr("width", x.bandwidth())
       .attr("y", function(d) {
         return y(d.amount); })
       .attr("height", function(d) {
-        return height - y(d.amount); });
+        return height - y(d.amount);
+      });
 
     // add asset value annotation at top of bars
     svg.selectAll(".labels")
       .data(data)
       .enter().append("text")
-      .transition().delay(200).duration(200).ease(d3.easeLinear)
+      .transition().duration(500).ease(d3.easeBounce)
       .text(function(d) {
         return d.amount;
       })
