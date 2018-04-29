@@ -32,17 +32,13 @@ document.ready.then(function () {
   var v;
 
 
-  // initial/default value of objective set to "Capital"
-  var objective = "Capital";
-  setObjectiveValues();
-
   // variables required for modifying asset positions
   // in response to user button activity
   // boolean switch for logging to console for debugging button actions
   var reportStatus = true;
 
 
-  // data array object with default settings for investment objective
+  // data array object with default settings
   var data = [
     { asset: "United States", amount: usa },
     { asset: "Canada", amount: can },
@@ -85,8 +81,13 @@ document.ready.then(function () {
       .enter().append("rect")
       .transition().duration(500).ease(d3.easeBounce)
       //.attr("class", "bar")
-      .attr("fill", colorPicker("usa"))
-      .attr("opacity", 0.5) // New Opacity
+      .attr("fill", function (d){
+        if (d.asset === "United States") {
+          return "#0B8EB3";
+        } else if (d.asset === "Canada") {
+          return "#EB300C";
+        }
+      })
       .attr("x", function(d) {
         return x(d.asset); })
       .attr("width", x.bandwidth())
@@ -196,8 +197,6 @@ function setObjectiveValues() {
 
 };
 
-
-
   makefigure(); // initial drawing of the bar chart
 
   // update the data for user selection of investment objective
@@ -220,12 +219,39 @@ function setObjectiveValues() {
   // (no values less than zero or greater than 100)
 
   function colorPicker(v) {
-    if (v == "usa") {
-      return "#0B8EB3";
-    } else if (v == "can") {
-      return "#EB300C";
-    }
+
   }
+
+
+// Draw legend
+
+// Draw legend
+var legendRectSize = 18,
+    legendSpacing  = 4;
+
+var legend = chart.selectAll('.legend')
+    .data(data.series)
+    .enter()
+    .append('g')
+    .attr('transform', function (d, i) {
+        var height = legendRectSize + legendSpacing;
+        var offset = -gapBetweenGroups/2;
+        var horz = spaceForLabels + chartWidth + 40 - legendRectSize;
+        var vert = i * height - offset;
+        return 'translate(' + horz + ',' + vert + ')';
+    });
+
+legend.append('rect')
+    .attr('width', legendRectSize)
+    .attr('height', legendRectSize)
+    .style('fill', function (d, i) { return color(i); })
+    .style('stroke', function (d, i) { return color(i); });
+
+legend.append('text')
+    .attr('class', 'legend')
+    .attr('x', legendRectSize + legendSpacing)
+    .attr('y', legendRectSize - legendSpacing)
+    .text(function (d) { return d.label; });
 
 
   // report results from button pressing when reportStatus is true
