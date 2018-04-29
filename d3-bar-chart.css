@@ -3,6 +3,16 @@
   margin-top:20px;
 }
 
+.citation {
+  font-size: 12px;
+  font-style: italics;
+  float: right;
+}
+
+.alert-secondary {
+  padding: 30px 20px 30px 20px;
+  background-color: #BFFFA4;
+}
 
 .bar {
   fill: green;

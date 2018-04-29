@@ -27,11 +27,10 @@ document.ready.then(function () {
 
 
   // define asset names as global variables
-  var cashValue;
-  var reitValue;
-  var bondsValue;
-  var fundValue;
-  var selfValue;
+  var usa;
+  var can;
+  var v;
+
 
   // initial/default value of objective set to "Capital"
   var objective = "Capital";
@@ -42,27 +41,11 @@ document.ready.then(function () {
   // boolean switch for logging to console for debugging button actions
   var reportStatus = true;
 
-  // set hard limits for min and max of each class of assets
-  // these will vary with the type of investor
-  var cashMin = 0;
-  var reitMin = 0;
-  var bondsMin = 0;
-  var fundMin = 0;
-  var selfMin = 0;
-
-  var cashMax = 100;
-  var reitMax = 100;
-  var bondsMax = 100;
-  var fundMax = 100;
-  var selfMax = 100;
 
   // data array object with default settings for investment objective
   var data = [
-    { asset: "Organic", amount: cashValue },
-    { asset: "Natural", amount: reitValue },
-    { asset: "Local Source", amount: bondsValue },
-    { asset: "Non GMO", amount: fundValue },
-    { asset: "Pure", amount: selfValue }
+    { asset: "United States", amount: usa },
+    { asset: "Canada", amount: can },
   ];
 
   // append the svg object to the body of the page
@@ -91,8 +74,9 @@ document.ready.then(function () {
     svg.append("text")
       .attr("class", "title")
       .attr("x", x(data[0].name))
-      .attr("y", -26)
-      .text("Types of Fitness for Health People");
+      .attr("y", -50)
+      .style("font-size", "15px")
+      .text("Top Reasons for Incorporating Plant-based Foods - Canada vs U.S.");
 
 
     // append the rectangles for the bar chart
@@ -100,7 +84,8 @@ document.ready.then(function () {
       .data(data)
       .enter().append("rect")
       .transition().duration(500).ease(d3.easeBounce)
-      .attr("class", "bar")
+      //.attr("class", "bar")
+      .attr("fill", colorPicker("usa"))
       .attr("opacity", 0.5) // New Opacity
       .attr("x", function(d) {
         return x(d.asset); })
@@ -121,12 +106,12 @@ document.ready.then(function () {
       })
       .attr("text-anchor", "middle")
       .attr("x", function(d) {
-        return x(d.asset) + 20; })
+        return x(d.asset) + 40; })
       .attr("y", function(d) {
-        return y(d.amount) - 5; })
+        return y(d.amount) + 30; })
       .attr("font-family", "Arial")
-      .attr("font-size", "12px")
-      .attr("fill", "black");
+      .attr("font-size", "16px")
+      .attr("fill", "white");
 
     // add the x Axis
     svg.append("g")
@@ -146,7 +131,7 @@ document.ready.then(function () {
       .attr("x", 0 - (height / 2))
       .attr("dy", "1em")
       .style("text-anchor", "middle")
-      .text("Y Axis Label");
+      .text("Response Percentages");
   };
 
   // Mike Bostock function for wrapping long text labels
@@ -178,37 +163,37 @@ document.ready.then(function () {
 
 function setObjectiveValues() {
   // set asset variable values to match investment objective
-  if (objective === "item1") {
-    cashValue = 10;
-    reitValue = 5;
-    bondsValue = 15;
-    fundValue = 40;
-    selfValue = 10
+  if (objective === "health") {
+    usa = 83;
+    can = 85;
   };
 
-  if (objective === "item2") {
-    cashValue = 10;
-    reitValue = 5;
-    bondsValue = 35;
-    fundValue = 40;
-    selfValue = 10
+  if (objective === "weight") {
+    usa = 62;
+    can = 56;
   };
 
-  if (objective === "item3") {
-    cashValue = 10;
-    reitValue = 15;
-    bondsValue = 5;
-    fundValue = 50;
-    selfValue = 20
+  if (objective === "clean") {
+    usa = 51;
+    can = 55;
+
   };
 
-  if (objective === "item4") {
-    cashValue = 10;
-    reitValue = 25;
-    bondsValue = 5;
-    fundValue = 30;
-    selfValue = 30
+  if (objective === "concerns") {
+    usa = 24;
+    can = 23;
   };
+
+  if (objective === "money") {
+    usa = 17;
+    can = 20;
+  };
+
+  if (objective === "environ") {
+    usa = 14;
+    can = 21;
+  };
+
 };
 
 
@@ -221,11 +206,8 @@ function setObjectiveValues() {
       if (reportStatus) console.log("objective set to: ", objective);
       setObjectiveValues();
       data = [
-        { asset: "Organic", amount: cashValue },
-        { asset: "Natural", amount: reitValue },
-        { asset: "Local Source", amount: bondsValue },
-        { asset: "Non GMO", amount: fundValue },
-        { asset: "Pure", amount: selfValue }
+        { asset: "United States", amount: usa },
+        { asset: "Canada", amount: can },
       ];
 
       if (reportStatus) console.log(data);
@@ -236,184 +218,20 @@ function setObjectiveValues() {
   // update data on user button activity when appropriate
   // there is a separate action for each button
   // (no values less than zero or greater than 100)
-  d3.selectAll("body").select("#reitPlus")
-    .on("click", function() {
-      if (reportStatus) console.log("detected reitPlus event");
-      if ((reitValue + 1 <= reitMax) && ((cashValue - 1) >= cashMin)) {
-        reitValue++;
-        cashValue--;
-      };
-      if (reportStatus) listValues();
 
-      data = [
-        { asset: "Organic", amount: cashValue },
-        { asset: "Natural", amount: reitValue },
-        { asset: "Local Source", amount: bondsValue },
-        { asset: "Non GMO", amount: fundValue },
-        { asset: "Pure", amount: selfValue }
-      ];
-
-      if (reportStatus) console.log(data);
-      makefigure(); // redrawing of the bar chart
-    });
-
-  d3.selectAll("body").select("#bondsPlus")
-    .on("click", function() {
-      if (reportStatus) console.log("detected bondsPlus event");
-      if ((bondsValue + 1 <= bondsMax) && ((cashValue - 1) >= cashMin)) {
-        bondsValue++;
-        cashValue--;
-      };
-      if (reportStatus) listValues();
-      data = [
-        { asset: "Organic", amount: cashValue },
-        { asset: "Natural", amount: reitValue },
-        { asset: "Local Source", amount: bondsValue },
-        { asset: "Non GMO", amount: fundValue },
-        { asset: "Pure", amount: selfValue }
-      ];
-
-      if (reportStatus) console.log(data);
-      makefigure(); // redrawing of the bar chart
-    });
-
-  d3.selectAll("body").select("#fundPlus")
-    .on("click", function() {
-      if (reportStatus) console.log("detected fundPlus event");
-      if ((fundValue + 1 <= fundMax) && ((cashValue - 1) >= cashMin)) {
-        fundValue++;
-        cashValue--;
-      };
-      if (reportStatus) listValues();
-      data = [
-        { asset: "Organic", amount: cashValue },
-        { asset: "Natural", amount: reitValue },
-        { asset: "Local Source", amount: bondsValue },
-        { asset: "Non GMO", amount: fundValue },
-        { asset: "Pure", amount: selfValue }
-      ];
-
-      if (reportStatus) console.log(data);
-      makefigure(); // redrawing of the bar chart
-    });
-
-
-  d3.selectAll("body").select("#selfPlus")
-    .on("click", function() {
-      if (reportStatus) console.log("detected var selfPlus event");
-      if ((selfValue + 1 <= selfMax) && ((cashValue - 1) >= cashMin)) {
-        selfValue++;
-        cashValue--;
-      };
-      if (reportStatus) listValues();
-      data = [
-        { asset: "Organic", amount: cashValue },
-        { asset: "Natural", amount: reitValue },
-        { asset: "Local Source", amount: bondsValue },
-        { asset: "Non GMO", amount: fundValue },
-        { asset: "Pure", amount: selfValue }
-      ];
-
-      if (reportStatus) console.log(data);
-      makefigure(); // redrawing of the bar chart
-    });
-
-
-  d3.selectAll("body").select("#reitMinus")
-    .on("click", function() {
-      if (reportStatus) console.log("detected reitMinus event");
-      if ((reitValue - 1 >= reitMin) && ((cashValue + 1) <= cashMax)) {
-        cashValue++;
-        reitValue--;
-      };
-      if (reportStatus) listValues();
-      data = [
-        { asset: "Organic", amount: cashValue },
-        { asset: "Natural", amount: reitValue },
-        { asset: "Local Source", amount: bondsValue },
-        { asset: "Non GMO", amount: fundValue },
-        { asset: "Pure", amount: selfValue }
-      ];
-
-      if (reportStatus) console.log(data);
-      makefigure(); // redrawing of the bar chart
-    });
-
-
-  d3.selectAll("body").select("#bondsMinus")
-    .on("click", function() {
-      if (reportStatus) console.log("detected bondsMinus event");
-
-      if ((bondsValue - 1 >= bondsMin) && ((cashValue + 1) <= cashMax)) {
-        cashValue++;
-        bondsValue--;
-      };
-      if (reportStatus) listValues();
-      data = [
-        { asset: "Organic", amount: cashValue },
-        { asset: "Natural", amount: reitValue },
-        { asset: "Local Source", amount: bondsValue },
-        { asset: "Non GMO", amount: fundValue },
-        { asset: "Pure", amount: selfValue }
-      ];
-
-      if (reportStatus) console.log(data);
-      makefigure(); // redrawing of the bar chart
-    });
-
-
-  d3.selectAll("body").select("#fundMinus")
-    .on("click", function() {
-      if (reportStatus) console.log("detected fundMinus event");
-
-      if ((fundValue - 1 >= fundMin) && ((cashValue + 1) <= cashMax)) {
-        cashValue++;
-        fundValue--;
-      };
-      if (reportStatus) listValues();
-      data = [
-        { asset: "Organic", amount: cashValue },
-        { asset: "Natural", amount: reitValue },
-        { asset: "Local Source", amount: bondsValue },
-        { asset: "Non GMO", amount: fundValue },
-        { asset: "Pure", amount: selfValue }
-      ];
-
-      if (reportStatus) console.log(data);
-      makefigure(); // redrawing of the bar chart
-    });
-
-
-  d3.selectAll("body").select("#selfMinus")
-    .on("click", function() {
-      if (reportStatus) console.log("detected selfMinus event");
-
-      if ((selfValue - 1 >= selfMin) && ((cashValue + 1) <= cashMax)) {
-        cashValue++;
-        selfValue--;
-      };
-      if (reportStatus) listValues();
-      data = [
-        { asset: "Organic", amount: cashValue },
-        { asset: "Natural", amount: reitValue },
-        { asset: "Local Source", amount: bondsValue },
-        { asset: "Non GMO", amount: fundValue },
-        { asset: "Pure", amount: selfValue }
-      ];
-
-      if (reportStatus) console.log(data);
-      makefigure(); // redrawing of the bar chart
-    });
-
+  function colorPicker(v) {
+    if (v == "usa") {
+      return "#0B8EB3";
+    } else if (v == "can") {
+      return "#EB300C";
+    }
+  }
 
 
   // report results from button pressing when reportStatus is true
   function listValues() {
-    console.log("cashValue: ", cashValue);
-    console.log("reitValue: ", reitValue);
-    console.log("bondsValue: ", bondsValue);
-    console.log("fundValue: ", fundValue);
-    console.log("selfValue: ", selfValue);
+    console.log("usa: ", usa);
+    console.log("can: ", can);
   };
 
 }); // end document ready function
