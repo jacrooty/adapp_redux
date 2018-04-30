@@ -23,11 +23,11 @@ function createWindow () {
     show: true,                  // default value = true
     backgroundColor: "#FFF",     // default value = "#FFF"
     width: 800,                  // default value = 800
-    height: 800,                 // default value = 600
+    height: 1000,                 // default value = 600
     minWidth: 0,                 // default value = 0
     maxWidth: 1000,              // default value = unlimited
     minHeight: 0,                // default value = 0
-    maxHeight: 1000,              // default value = unlimited
+    maxHeight: 1200,              // default value = unlimited
     resizable: false,             // default value = true
     movable: true,               // default value = true
     alwaysOnTop: false,          // default value = false

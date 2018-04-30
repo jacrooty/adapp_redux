@@ -9,6 +9,11 @@
   float: right;
 }
 
+h1 {
+  font-size: 1.8em;
+  padding-bottom: 10px;
+}
+
 .alert-secondary {
   padding: 30px 20px 30px 20px;
   background-color: #BFFFA4;

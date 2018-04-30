@@ -31,8 +31,6 @@ document.ready.then(function () {
   var can;
   var v;
 
-
-  // variables required for modifying asset positions
   // in response to user button activity
   // boolean switch for logging to console for debugging button actions
   var reportStatus = true;
@@ -79,7 +77,7 @@ document.ready.then(function () {
     svg.selectAll(".bar")
       .data(data)
       .enter().append("rect")
-      .transition().duration(500).ease(d3.easeBounce)
+      .transition().duration(1000).ease(d3.easeBack, 9)
       //.attr("class", "bar")
       .attr("fill", function (d){
         if (d.asset === "United States") {
@@ -97,11 +95,11 @@ document.ready.then(function () {
         return height - y(d.amount);
       });
 
-    // add asset value annotation at top of bars
+    // add responses from the respondents
     svg.selectAll(".labels")
       .data(data)
       .enter().append("text")
-      .transition().duration(500).ease(d3.easeBounce)
+      .transition().duration(1000).ease(d3.easeBack)
       .text(function(d) {
         return d.amount;
       })
@@ -119,6 +117,7 @@ document.ready.then(function () {
       .attr("transform", "translate(0," + height + ")")
       .call(d3.axisBottom(x))
       .selectAll(".tick text")
+      .attr("font-size", "13px")
       .call(wrap, x.bandwidth());
 
     // add the y Axis
@@ -199,7 +198,6 @@ function setObjectiveValues() {
 
   makefigure(); // initial drawing of the bar chart
 
-  // update the data for user selection of investment objective
   $("#objectiveInput").change(function(){
       objective = document.getElementById("objectiveInput").value;
       if (reportStatus) console.log("objective set to: ", objective);
@@ -213,45 +211,6 @@ function setObjectiveValues() {
       if (reportStatus) listValues();
       makefigure();  // redrawing of the bar chart to fit new objective input
   });
-
-  // update data on user button activity when appropriate
-  // there is a separate action for each button
-  // (no values less than zero or greater than 100)
-
-  function colorPicker(v) {
-
-  }
-
-
-// Draw legend
-
-// Draw legend
-var legendRectSize = 18,
-    legendSpacing  = 4;
-
-var legend = chart.selectAll('.legend')
-    .data(data.series)
-    .enter()
-    .append('g')
-    .attr('transform', function (d, i) {
-        var height = legendRectSize + legendSpacing;
-        var offset = -gapBetweenGroups/2;
-        var horz = spaceForLabels + chartWidth + 40 - legendRectSize;
-        var vert = i * height - offset;
-        return 'translate(' + horz + ',' + vert + ')';
-    });
-
-legend.append('rect')
-    .attr('width', legendRectSize)
-    .attr('height', legendRectSize)
-    .style('fill', function (d, i) { return color(i); })
-    .style('stroke', function (d, i) { return color(i); });
-
-legend.append('text')
-    .attr('class', 'legend')
-    .attr('x', legendRectSize + legendSpacing)
-    .attr('y', legendRectSize - legendSpacing)
-    .text(function (d) { return d.label; });
 
 
   // report results from button pressing when reportStatus is true
